@@ -4,11 +4,13 @@ import { Login } from "../components/pages/Login";
 import { homeRoutes } from "./HomeRoutes";
 import { Page404 } from "../components/pages/Page404";
 import { HeaderLayout } from "../components/pages/template/HeaderLayout";
+import { LoginUserProvider } from "../hooks/providors/useLoginUserProvider";
 
 export const Router: FC = memo(() => {
     return (
         <>
         <Switch>
+            <LoginUserProvider>
             <Route exact path="/">
                 <Login />
             </Route>
@@ -21,6 +23,7 @@ export const Router: FC = memo(() => {
                     ))}
                 </Switch>
             )}/>
+        </LoginUserProvider>
         <Route path='*'>
             <Page404/>
         </Route>
